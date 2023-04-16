@@ -1,0 +1,7 @@
+
+socket.OnMessage:Connect(function(message) --// This is where commands start
+    local Decoded = game.HttpService:JSONDecode(message)
+    if Decoded.Command == "kill" and Decoded.player == game:GetService("Players").LocalPlayer.Name then
+        game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+    end
+end)
